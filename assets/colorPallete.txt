@@ -1,0 +1,4 @@
+#FF6500 - Orange
+#1E3E62 - Blue
+#0B192C - Darker Blue
+#000000 - Black
