@@ -1,0 +1,49 @@
+/* Colors */
+.orangebg{
+    background-color: #FF6500;
+}
+.orangefg{
+    color: #FF6500;
+}
+
+.bluebg{
+    background-color: #1E3E62;
+}
+.bluefg{
+    color: #1E3E62;
+}
+
+.darkbluebg{
+    background-color: #0B192C;
+}
+.darkbluefg{
+    color: #0B192C;
+}
+
+.blackbg{
+    background-color: #000000;
+}
+.blackfg{
+    color: #000000;
+}
+
+/* NavBar */
+.navbar-brand img{
+    width: 75px;
+    margin: 0px;
+}
+
+.navbar-profile img{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin-left: auto;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* Graph */
+
+/* Buttons */
+
+/* Active */ 
