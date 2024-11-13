@@ -4,5 +4,6 @@
 #000000 - Black
 
 
-#000000 - Green
-#000000 - Red
+#4CAF50 - Green
+#F44336 - Red
+#FFC107 - Yellow
