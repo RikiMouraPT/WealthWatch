@@ -67,9 +67,9 @@
             <!-- 2nd Col - Buttons-->
             <div class="col-2 d-flex flex-column">
                 <div class="d-grid gap-5 flex-grow-1 buttons">
-                    <button id="buy" class="btn mt-0 m-2 btn-block flex-fill" type="button">Buy</button>
-                    <button id="sell" class="btn m-2 btn-block flex-fill" type="button">Sell</button>
-                    <button id="update" class="btn mb-0 m-2 btn-block flex-fill" type="button">Update</button>
+                    <button class="btnBuy" class="btn mt-0 m-2 btn-block flex-fill" type="button" data-bs-toggle="modal" data-bs-target="#buyModal">Buy</button>
+                    <button class="btnSell" class="btn m-2 btn-block flex-fill" type="button" data-bs-toggle="modal" data-bs-target="#sellModal">Sell</button>
+                    <button class="btnUpdate" class="btn mb-0 m-2 btn-block flex-fill" type="button" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
                 </div>
             </div>
         </div>
@@ -318,8 +318,185 @@
                         </tr>
                     </tbody>
                 </table>
-        </div>
+            </div>
         </div>
      </div>
+
+    <!-- Buy Modal -->
+    <div class="modal fade" id="buyModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Buy</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="buyForm">
+                        <div class="mb-3">
+                            <label for="productName" class="form-label">Product</label>
+                            <input type="text" class="form-control" id="productName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="symbol" class="form-label">SYMBOL/ISIN</label>
+                            <input type="text" class="form-control" id="symbol" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exchange" class="form-label">Exchange</label>
+                            <input type="text" class="form-control" id="exchange" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">QTY</label>
+                            <input type="number" class="form-control" id="quantity" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="price" step="0.01" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="currency" class="form-label">Curr.</label>
+                            <input type="text" class="form-control" id="currency" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btnBuy">Buy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sell Modal -->
+    <div class="modal fade" id="sellModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sell</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="sellForm">
+                        <div class="mb-3">
+                            <label for="portfolioItem" class="form-label">Select Product</label>
+                            <select class="form-select" id="portfolioItem" required>
+                                <option value="" disabled selected>Select a product</option>
+                                <option value="AAPL">Apple Inc. (AAPL)</option>
+                                <option value="MSFT">Microsoft Corp. (MSFT)</option>
+                                <option value="AMZN">Amazon.com Inc. (AMZN)</option>
+                                <option value="GOOGL">Alphabet Inc. (GOOGL)</option>
+                                <option value="FB">Facebook Inc. (FB)</option>
+                                <option value="TSLA">Tesla Inc. (TSLA)</option>
+                                <option value="NFLX">Netflix Inc. (NFLX)</option>
+                                <option value="NVDA">NVIDIA Corp. (NVDA)</option>
+                                <option value="INTC">Intel Corp. (INTC)</option>
+                                <option value="AMD">AMD Inc. (AMD)</option>
+                                <option value="IBM">IBM Corp. (IBM)</option>
+                                <option value="ORCL">Oracle Corp. (ORCL)</option>
+                                <option value="CRM">Salesforce Inc. (CRM)</option>
+                                <option value="ADBE">Adobe Inc. (ADBE)</option>
+                                <option value="PYPL">PayPal Holdings (PYPL)</option>
+                                <option value="SHOP">Shopify Inc. (SHOP)</option>
+                                <option value="SQ">Square Inc. (SQ)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sellQuantity" class="form-label">QTY</label>
+                            <input type="number" class="form-control" id="sellQuantity" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btnSell">Sell</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Update Modal -->
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="updateForm">
+                        <div class="mb-3">
+                            <label for="updatePortfolioItem" class="form-label">Select Product</label>
+                            <select class="form-select" id="updatePortfolioItem" required>
+                                <option value="" disabled selected>Select a product</option>
+                                <option value="AAPL">Apple Inc. (AAPL)</option>
+                                <option value="MSFT">Microsoft Corp. (MSFT)</option>
+                                <option value="AMZN">Amazon.com Inc. (AMZN)</option>
+                                <option value="GOOGL">Alphabet Inc. (GOOGL)</option>
+                                <option value="FB">Facebook Inc. (FB)</option>
+                                <option value="TSLA">Tesla Inc. (TSLA)</option>
+                                <option value="NFLX">Netflix Inc. (NFLX)</option>
+                                <option value="NVDA">NVIDIA Corp. (NVDA)</option>
+                                <option value="INTC">Intel Corp. (INTC)</option>
+                                <option value="AMD">AMD Inc. (AMD)</option>
+                                <option value="IBM">IBM Corp. (IBM)</option>
+                                <option value="ORCL">Oracle Corp. (ORCL)</option>
+                                <option value="CRM">Salesforce Inc. (CRM)</option>
+                                <option value="ADBE">Adobe Inc. (ADBE)</option>
+                                <option value="PYPL">PayPal Holdings (PYPL)</option>
+                                <option value="SHOP">Shopify Inc. (SHOP)</option>
+                                <option value="SQ">Square Inc. (SQ)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="updateQuantity" class="form-label">QTY</label>
+                            <input type="number" class="form-control" id="updateQuantity" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="updatePrice" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="updatePrice" step="0.01" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="updateCurrency" class="form-label">Curr.</label>
+                            <input type="text" class="form-control" id="updateCurrency" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btnUpdate">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('updatePortfolioItem').addEventListener('change', function() {
+            var selectedValue = this.value;
+            var portfolioData = {
+                'AAPL': { quantity: 10, price: 150.25, currency: 'USD' },
+                'MSFT': { quantity: 15, price: 250.50, currency: 'USD' },
+                'AMZN': { quantity: 5, price: 3300.00, currency: 'USD' },
+                'GOOGL': { quantity: 8, price: 2800.00, currency: 'USD' },
+                'FB': { quantity: 12, price: 350.00, currency: 'USD' },
+                'TSLA': { quantity: 7, price: 700.00, currency: 'USD' },
+                'NFLX': { quantity: 9, price: 550.00, currency: 'USD' },
+                'NVDA': { quantity: 20, price: 600.00, currency: 'USD' },
+                'INTC': { quantity: 25, price: 50.00, currency: 'USD' },
+                'AMD': { quantity: 30, price: 100.00, currency: 'USD' },
+                'IBM': { quantity: 18, price: 140.00, currency: 'USD' },
+                'ORCL': { quantity: 22, price: 90.00, currency: 'USD' },
+                'CRM': { quantity: 12, price: 250.00, currency: 'USD' },
+                'ADBE': { quantity: 15, price: 500.00, currency: 'USD' },
+                'PYPL': { quantity: 20, price: 200.00, currency: 'USD' },
+                'SHOP': { quantity: 10, price: 1000.00, currency: 'USD' },
+                'SQ': { quantity: 15, price: 300.00, currency: 'USD' }
+            };
+
+            if (portfolioData[selectedValue]) {
+                document.getElementById('updateQuantity').value = portfolioData[selectedValue].quantity;
+                document.getElementById('updatePrice').value = portfolioData[selectedValue].price;
+                document.getElementById('updateCurrency').value = portfolioData[selectedValue].currency;
+            }
+        });
+    </script>
 </body>
 </html>

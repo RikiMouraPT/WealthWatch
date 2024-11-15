@@ -60,14 +60,14 @@ header{
     border: none;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
-#buy{
-    background-color: #4CAF50;
+.btnBuy{
+    background-color: #4CAF50 !important;
 }
-#sell{
-    background-color: #F44336;
+.btnSell{
+    background-color: #F44336 !important;
 }
-#update{
-    background-color: #FFC107;
+.btnUpdate{
+    background-color: #FFC107 !important;
 }
 /* ------------------ ASSETS ------------------ */
 #assets-title{
