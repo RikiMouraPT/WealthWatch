@@ -27,28 +27,56 @@
     color: #000000;
 }
 /* Login Form*/
-.login-form{
+/* Login Form */
+.login-form {
     width: 100%;
-    max-width: 330px;
-    padding: 15px;
+    max-width: 500px; /* Aumentado para tornar a caixa maior */
+    padding: 20px;
     margin: auto;
 }
 
-.login-form-container{
+.login-form-container {
     border: 2px solid #1E3E62;
-    padding: 20px;
+    padding: 40px; /* Mais padding para aumentar o espaço interno */
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    width: 40vw; /* Ocupar mais largura na viewport */
+    height: 60vh; /* Ocupar mais altura na viewport */
 }
 
-.logo-form-header h1{
-    font-size: 3rem;
-    font-weight: bold;
+.login-form-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
+}
+
+.login-form-header img {
+    width: 250px; /* Aumentar o tamanho do logótipo */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.logo-form-header h1 {
+    font-size: 2.5rem; /* Texto maior para o título */
+    font-weight: bold;
     color: #FF6500;
 }
 
-.login-form-title{
-    font-size: 1.5rem;
+.login-form-title {
+    font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 20px;
+}
+
+a {
+    font-size: 1.2rem; /* Aumentar o tamanho do link de login */
 }
