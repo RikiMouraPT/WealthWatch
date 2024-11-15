@@ -7,3 +7,17 @@
 #4CAF50 - Green
 #F44336 - Red
 #FFC107 - Yellow
+
+
+--------------------------
+    CORES MAIS CLARAS
+--------------------------
+
+https://colorhunt.co/palette/78b3cec9e6f0fbf8eff96e2a
+
+#1E3E62 - Azul Escuro
+#78B3CE - Azul Medio
+#C9E6F0 - Azul Claro
+#FBF8EF - Branco Sujo
+#F96E2A - Laranja
+
