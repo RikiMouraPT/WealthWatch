@@ -26,7 +26,7 @@
 .blackfg{
     color: #000000;
 }
-/*Form*/
+/* Login Form*/
 .login-form{
     width: 100%;
     max-width: 330px;
@@ -35,8 +35,20 @@
 }
 
 .login-form-container{
-    border: #000000 1px solid;
+    border: 2px solid #1E3E62;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.logo-form-header h1{
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #FF6500;
+}
+
+.login-form-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
