@@ -1,17 +1,22 @@
-// Variáveis locais para email e password
-var email = 'vitor@gmail.com';
-var password = 'vitorlindo';
+// Lista de contas válidas
+const accounts = [
+    { email: 'vitor@gmail.com', password: 'vitorlindo' },
+    { email: 'ricardo@gmail.com', password: 'ricardolindo' }
+];
 
-// Simular login e redirecionar para dashboard.html
+// Função para validar login e redirecionar
 function handleLogin(event) {
     event.preventDefault(); // Evita o comportamento padrão de envio do formulário
 
     const emailInput = document.getElementById('email').value;
     const passwordInput = document.getElementById('password').value;
 
-    // Verifica se o email e password coincidem com as variáveis
-    if (emailInput === email && passwordInput === password) {
-        window.location.href = "pages/dashboard/dashboard.html"; // Redireciona para o dashboard
+    // Verifica se o email e password correspondem a alguma conta na lista
+    const validAccount = accounts.find(account => account.email === emailInput && account.password === passwordInput);
+
+    if (validAccount) {
+        // Redireciona para o dashboard
+        window.location.href = "pages/dashboard/dashboard.html";
     } else {
         alert("Email ou password incorretos!");
     }
