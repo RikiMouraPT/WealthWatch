@@ -1,0 +1,31 @@
+
+body{
+    background-color: #C9E6F0 !important;  /* Important is needed to overwrite boostrap white background */
+}
+
+.profile-picture {
+    width: 50px;
+    height: 50px;
+    background-color: #6c757d;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 5px;
+    max-width: 250px;
+}
+
+.cell {
+    width: 20px;
+    height: 20px;
+    background-color: #e9ecef;
+}
+
+.cell.bought {
+    background-color: #28a745;
+}
+
+.cell.sold {
+    background-color: #dc3545;
+}
