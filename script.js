@@ -1,7 +1,8 @@
 // Lista de contas válidas
 const accounts = [
     { email: 'vitor@gmail.com', password: 'vitorlindo' },
-    { email: 'ricardo@gmail.com', password: 'ricardolindo' }
+    { email: 'ricardo@gmail.com', password: 'ricardolindo' },
+    { email: '1@1', password: '1' }
 ];
 
 // Função para validar login e redirecionar
