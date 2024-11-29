@@ -29,3 +29,14 @@ body{
 .cell.sold {
     background-color: #dc3545;
 }
+
+.header-profile {
+    height: auto;
+    width: 100%; /* Ajusta para ocupar todo o espaço do pai */
+    max-width: 150px; /* Define o máximo para responsividade */
+    max-height: 150px; /* Mantém a proporção */
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+}
+

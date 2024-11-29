@@ -3,41 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de Usuário</title>
+    <title>User Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="profile.css">
+    <script src="profile.js" defer></script>
 </head>
 <body>
     <div class="container my-4">
-        <div>
-            <button class="btn btn-outline-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#editProfileModal">
-            Edit Profile
-            </button>
-        </div>
-        <div class="mt-4">
-            <div class="mb-3">
-            <label class="form-label">Name:</label>
-            <p id="displayName">John Doe</p>
+        <div class="container my-4">
+            <a><img class="shadow header-profile"src="../../assets/FotoPasse.jpg" alt="ProfilePic"></a>
+            <div>
+                <button class="btn btn-outline-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
             </div>
-            <div class="mb-3">
-            <label class="form-label">Bio:</label>
-            <p id="displayBio">Sample bio</p>
-            </div>
-            <div class="mb-3">
-            <label class="form-label">Location:</label>
-            <p id="displayLocation">Portugal</p>
-            </div>
-            <div class="mb-3">
-            <label class="form-label">Timezone:</label>
-            <p id="displayTimezone">GMT</p>
-            </div>
-            <div class="mb-3">
-            <label class="form-label">Currency:</label>
-            <p id="displayCurrency">EUR</p>
-            </div>
-            <div class="mb-3">
-            <label class="form-label">Preferences:</label>
-            <p id="displayPreferences">Stocks</p>
+            <div class="mt-4">
+                <div class="mb-3">
+                <label class="form-label"><b>Name:</b></label>
+                <a id="displayName">John Doe</a>
+                </div>
+                <div class="mb-3">
+                <label class="form-label"><b>Bio:</b></label>
+                <a id="displayBio">Sample bio</a>
+                </div>
+                <div class="mb-3">
+                <label class="form-label"><b>Location:</b></label>
+                <a id="displayLocation">Portugal</a>
+                </div>
+                <div class="mb-3">
+                <label class="form-label"><b>Timezone:</b></label>
+                <a id="displayTimezone">GMT</a>
+                </div>
+                <div class="mb-3">
+                <label class="form-label"><b>Currency:</b></label>
+                <a id="displayCurrency">EUR</a>
+                </div>
+                <div class="mb-3">
+                <label class="form-label"><b>Preferences:</b></label>
+                <a id="displayPreferences">Stocks</a>
+                </div>
             </div>
         </div>
     </div>
@@ -97,47 +99,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // Guarda as alterações
-        function saveChanges() {
-            const profileData = {
-                name: document.getElementById('name').value,
-                bio: document.getElementById('bio').value,
-                location: document.getElementById('location').value,
-                timezone: document.getElementById('timezone').value,
-                currency: document.getElementById('currency').value,
-                preferences: document.getElementById('preferences').value,
-            };
-
-            localStorage.setItem('profileData', JSON.stringify(profileData));
-
-            // Atualiza o perfil
-            updateProfileDisplay(profileData);
-
-            // Fecha o modal
-            var modal = bootstrap.Modal.getInstance(document.getElementById('editProfileModal'));
-            modal.hide();
-        }
-        // Atualiza a interface
-        function updateProfileDisplay(data) {
-            document.getElementById('displayName').innerText = data.name;
-            document.getElementById('displayBio').innerText = data.bio;
-            document.getElementById('displayLocation').innerText = data.location;
-            document.getElementById('displayTimezone').innerText = data.timezone;
-            document.getElementById('displayCurrency').innerText = data.currency;
-            document.getElementById('displayPreferences').innerText = data.preferences;
-        }
-
-        // Restaura os dados ao carregar a página
-        window.onload = function () {
-            const savedData = JSON.parse(localStorage.getItem('profileData'));
-            if (savedData) {
-                updateProfileDisplay(savedData);
-            }
-        };
-    </script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
