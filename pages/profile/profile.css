@@ -40,3 +40,10 @@ body{
     object-position: top;
 }
 
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 20%;
+    
+}
