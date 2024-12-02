@@ -30,20 +30,75 @@ body{
     background-color: #dc3545;
 }
 
-.header-profile {
-    height: auto;
-    width: 100%; /* Ajusta para ocupar todo o espaço do pai */
-    max-width: 150px; /* Define o máximo para responsividade */
-    max-height: 150px; /* Mantém a proporção */
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: top;
+/* Container do perfil e atividade */
+.profile-container {
+    flex: 1; /* Ocupa 1 parte do espaço disponível */
+    max-width: 300px; /* Limita a largura da coluna do perfil */
 }
 
-.textContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    width: 20%;
-    
+.header-profile {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.activity-container {
+    flex: 2;
+}
+
+.activity-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.activity-table th, 
+.activity-table td {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+.activity-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.activity-table td {
+    width: 25px;
+    height: 25px;
+}
+
+.day-cell {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.day-cell[data-status="buy"] {
+    background-color: #28a745;
+    color: white;
+}
+
+.day-cell[data-status="sell"] {
+    background-color: #dc3545;
+    color: white;
+}
+
+.day-cell[data-status="none"] {
+    background-color: #f8f9fa;
+    color: #6c757d;
+}
+
+.svg-area
+{
+  background-color: rgb(255, 255, 255) !important;
+  border:1px solid rgb(226, 226, 226);
+  font-family: Arial, Helvetica, sans-serif;
+  color:#272727 !important;
+}
+
+.heatMapMonths-labels{
+  /* text-anchor: middle; */
+  font-size: 12px;
 }
