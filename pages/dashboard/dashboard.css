@@ -63,10 +63,19 @@ header{
 .btnBuy{
     background-color: #4CAF50 !important;
 }
+.btnConfirmBuy{
+    background-color: #4CAF50 !important;
+}
 .btnSell{
     background-color: #F44336 !important;
 }
+.btnConfirmSell{
+    background-color: #F44336 !important;
+}
 .btnUpdate{
+    background-color: #FFC107 !important;
+}
+.btnConfirmUpdate{
     background-color: #FFC107 !important;
 }
 /* ------------------ ASSETS ------------------ */
