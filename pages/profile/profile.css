@@ -3,104 +3,16 @@ body{
     background-color: #C9E6F0 !important;  /* Important is needed to overwrite boostrap white background */
 }
 
-.profile-picture {
-    width: 50px;
-    height: 50px;
-    background-color: #6c757d;
-}
-
-.calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 5px;
-    max-width: 250px;
-}
-
-.cell {
-    width: 20px;
-    height: 20px;
-    background-color: #e9ecef;
-}
-
-.cell.bought {
-    background-color: #28a745;
-}
-
-.cell.sold {
-    background-color: #dc3545;
-}
-
 /* Container do perfil e atividade */
 .profile-container {
-    flex: 1; /* Ocupa 1 parte do espaço disponível */
-    max-width: 300px; /* Limita a largura da coluna do perfil */
+    height: auto;
+    width: 100%;
 }
 
 .header-profile {
-    width: 100px;
-    height: 100px;
+    width: 40%;
+    height: 40%;
     border-radius: 50%;
-}
-
-.activity-container {
-    flex: 2;
-}
-
-.activity-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.activity-table th, 
-.activity-table td {
-    text-align: center;
-    border: 1px solid #ddd;
-    padding: 5px;
-}
-
-.activity-table th {
-    background-color: #f8f9fa;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.activity-table td {
-    width: 25px;
-    height: 25px;
-}
-
-.day-cell {
-    background-color: #f0f0f0;
-    cursor: pointer;
-}
-
-.day-cell[data-status="buy"] {
-    background-color: #28a745;
-    color: white;
-}
-
-.day-cell[data-status="sell"] {
-    background-color: #dc3545;
-    color: white;
-}
-
-.day-cell[data-status="none"] {
-    background-color: #f8f9fa;
-    color: #6c757d;
-}
-
-.svg-area
-{
-  background-color: rgb(255, 255, 255) !important;
-  border:1px solid rgb(226, 226, 226);
-  font-family: Arial, Helvetica, sans-serif;
-  color:#272727 !important;
-}
-
-.heatMapMonths-labels{
-  /* text-anchor: middle; */
-  font-size: 12px;
 }
 
 .meses {
