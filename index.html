@@ -11,20 +11,20 @@
     <title>Wealth Watch</title>
 </head>
 <body>
-    <div class="login-form-container justify-content-center">
-        <div class="col-4 login-form">
-            <div class="login-form-header">
-                <img src="assets/logoNoBackground.png" alt="logo" class="logo">
+    <div class="container justify-content-center h-100 w-50 rounded my-5" style="background-color: #1E3E62;">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5 d-flex login-form-header text-center">
+                <img src="assets/logoNoBackground.png" alt="logo" class="logo img-fluid">
                 <form onsubmit="handleLogin(event)">
                     <div class="mb-3 form-labels">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <label for="email" class="form-label d-flex justify-content-start">Email address</label>
+                        <input type="email" class="form-control form-control-lg" id="email" name="email" required>
                     </div>
-                    <div class="mb-3 form-labels">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                    <div class="mb-3 form-labels" data-mdb-input-init>
+                        <label for="password" class="form-label d-flex justify-content-start">Password</label>
+                        <input type="password" class="form-control form-control-lg" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn border border-primary" style="background-color: #1E3E62; border-color: #C9E6F0; color: #C9E6F0">Login</button>
                 </form>
             </div>
         </div>
