@@ -35,4 +35,3 @@ window.onload = function () {
         updateProfileDisplay(savedData);
     }
 };
-

@@ -10,100 +10,57 @@
 </head>
 <body>
     <div class="container my-4">
-        <div class="container my-4 d-flex flex-wrap">
-            <!-- Coluna do Perfil -->
-            <div class="profile-container">
-                <a><img class="shadow header-profile" src="../../assets/FotoPasse.jpg" alt="ProfilePic"></a>
-                <div>
-                    <button class="btn btn-outline-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
-                </div>
-                <div class="textContainer mt-4">
-                    <!-- Dados do Perfil -->
-                    <div class="mb-3">
-                        <label class="form-label"><b>Name:</b></label>
-                        <a id="displayName">John Doe</a>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><b>Bio:</b></label>
-                        <a id="displayBio">Sample bio</a>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><b>Location:</b></label>
-                        <a id="displayLocation">Portugal</a>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><b>Timezone:</b></label>
-                        <a id="displayTimezone">GMT</a>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><b>Currency:</b></label>
-                        <a id="displayCurrency">EUR</a>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><b>Preferences:</b></label>
-                        <a id="displayPreferences">Stocks</a>
-                    </div>
-                </div>
-            </div>
-        
-            <!-- Coluna da Grelha -->
-            <div class="activity-container ms-5">
-                <h1>Heatmap de Compras e Vendas</h1>
-                <div class="meses">
-                <!-- Janeiro -->
-                <div class="mes">
-                    <div class="titulo-mes">Janeiro</div>
-                    <div class="dias">
-                        <!-- Exemplo: Dias com classes compra/venda -->
-                        <div class="dia"></div>
-                        <div class="dia compra"></div>
-                        <div class="dia venda"></div>
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <!-- Repete para 31 dias -->
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <div class="dia compra"></div>
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <div class="dia venda"></div>
-                        <div class="dia"></div>
-                        <div class="dia venda"></div>
-                        <div class="dia venda"></div>
-                        <div class="dia compra"></div>
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <div class="dia"></div>
-                        <div class="dia compra"></div>
-                        <div class="dia compra"></div>
-                    </div>
-                </div>
-
-                <!-- Fevereiro -->
-                <div class="mes">
-                    <div class="titulo-mes">Fevereiro</div>
-                    <div class="dias">
-                        <!-- Adicione os dias -->
-                        <div class="dia"></div>
-                        <div class="dia compra"></div>
-                        <div class="dia venda"></div>
-                        <div class="dia"></div>
-                    </div>
-                </div>
-            </div>
+        <div class="d-flex flex-column">
+            <!-- Imagem do Perfil -->
+            <a><img class="shadow header-profile" src="../../assets/FotoPasse.jpg" alt="ProfilePic"></a>
+            <button class="btn btn-outline-secondary btn-sm mt-3 align-items-left" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
             
-        </div>        
+            <!-- Dados do Perfil -->
+            <div class="textContainer mt-4 align-items-left">
+                <div class="mb-3">
+                    <label class="form-label"><b>Name:</b></label>
+                    <span id="displayName">John Doe</span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"><b>Bio:</b></label>
+                    <span id="displayBio">Sample bio</span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"><b>Location:</b></label>
+                    <span id="displayLocation">Portugal</span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"><b>Timezone:</b></label>
+                    <span id="displayTimezone">GMT</span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"><b>Currency:</b></label>
+                    <span id="displayCurrency">EUR</span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"><b>Preferences:</b></label>
+                    <span id="displayPreferences">Stocks</span>
+                </div>
+            </div>
+            <!-- Heatmap -->
+            <div class="heatmap container">
+                <script>
+                    // Gerar 365 dias com contribuições aleatórias (1 a 5)
+                    let contributions = [];
+                    for (let i = 0; i < 365; i++) {
+                        contributions.push(Math.floor(Math.random() * 3) + 1); // Gera números entre 1 e 5
+                    }
+                    
+                    // Preencher a grid com os dados de contribuição
+                    let heatmap = document.querySelector('.heatmap');
+                    contributions.forEach(level => {
+                        let day = document.createElement('div');
+                        day.classList.add('day', `level-${level}`);
+                        heatmap.appendChild(day);
+                    });
+                </script>
+            </div>
+        </div>
     </div>
 
     <!-- Modal -->
