@@ -9,14 +9,12 @@
     <script src="profile.js" defer></script>
 </head>
 <body>
-    <div class="container my-4">
-        <div class="d-flex flex-column">
-            <!-- Imagem do Perfil -->
-            <a><img class="shadow header-profile" src="../../assets/FotoPasse.jpg" alt="ProfilePic"></a>
-            <button class="btn btn-outline-secondary btn-sm mt-3 align-items-left" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
-            
-            <!-- Dados do Perfil -->
-            <div class="textContainer mt-4 align-items-left">
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-2 d-flex flex-column">
+                <!-- Imagem do Perfil -->
+                <a><img class="img-fluid profile-pic" src="../../assets/FotoPasse.jpg" alt="ProfilePic"></a>
+                <button class="btn btn-outline-secondary mt-3 align-items-left" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
                 <div class="mb-3">
                     <label class="form-label"><b>Name:</b></label>
                     <span id="displayName">John Doe</span>
@@ -43,22 +41,100 @@
                 </div>
             </div>
             <!-- Heatmap -->
-            <div class="heatmap container">
-                <script>
-                    // Gerar 365 dias com contribuições aleatórias (1 a 5)
-                    let contributions = [];
-                    for (let i = 0; i < 365; i++) {
-                        contributions.push(Math.floor(Math.random() * 3) + 1); // Gera números entre 1 e 5
-                    }
-                    
-                    // Preencher a grid com os dados de contribuição
-                    let heatmap = document.querySelector('.heatmap');
-                    contributions.forEach(level => {
-                        let day = document.createElement('div');
-                        day.classList.add('day', `level-${level}`);
-                        heatmap.appendChild(day);
-                    });
-                </script>
+            <div class="col-10 my-auto">
+                <div class="d-flex justify-content-center">
+                    <div class="heatmap">
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+                            const totalDays = 365;  // Número de dias no ano
+                            const startPadding = 2;  // Segunda-feira = 0, Terça = 1, etc.
+                            const weeks = 52; // Número de semanas no ano
+
+                            // Calcular o número de células vazias no final
+                            const endPadding = (7 - (startPadding + totalDays) % 7) % 7;
+
+                            // Gerar 365 dias com contribuições aleatórias (níveis de 1 a 3)
+                            const contributions = [];
+                            for (let i = 0; i < totalDays; i++) {
+                                contributions.push(Math.floor(Math.random() * 3) + 1);
+                            }
+
+                            // Selecionar a grelha
+                            const heatmap = document.querySelector('.heatmap');
+
+                            // Adicionar células vazias no início (startPadding)
+                            for (let i = 0; i < startPadding; i++) {
+                                const emptyDay = document.createElement('div');
+                                emptyDay.classList.add('day', 'level-0');
+                                heatmap.appendChild(emptyDay);
+                            }
+
+                            // Preencher a grid por semanas (52 semanas)
+                            let dayIndex = 0;
+                            for (let i = 0; i < weeks; i++) {
+                                // Para cada semana, adicionar 7 células (um para cada dia da semana)
+                                for (let j = 0; j < 7; j++) {
+                                    if (dayIndex < totalDays) {
+                                        const level = contributions[dayIndex];
+                                        const day = document.createElement('div');
+                                        day.classList.add('day', `level-${level}`);
+                                        heatmap.appendChild(day);
+                                        dayIndex++;
+                                    } else {
+                                        // Se não houver mais contribuições, preenchemos com células vazias
+                                        const emptyDay = document.createElement('div');
+                                        emptyDay.classList.add('day', 'level-0');
+                                        heatmap.appendChild(emptyDay);
+                                    }
+                                }
+                            }
+
+                            // Adicionar células vazias no final (endPadding)
+                            for (let i = 0; i < endPadding; i++) {
+                                const emptyDay = document.createElement('div');
+                                emptyDay.classList.add('day', 'level-0');
+                                heatmap.appendChild(emptyDay);
+                            }
+                            });
+
+
+                            /*document.addEventListener("DOMContentLoaded", function () {
+                            const startPadding = 2; // Segunda-feira = 0, Terça-feira = 1, etc.
+                            const endPadding = 6 - (startPadding + 364) % 7;
+
+                            // Gerar 365 dias com contribuições aleatórias (níveis de 1 a 3)
+                            const contributions = [];
+                            for (let i = 0; i < 365; i++) {
+                                contributions.push(Math.floor(Math.random() * 3) + 1);
+                            }
+
+                            // Selecionar a grelha
+                            const heatmap = document.querySelector('.heatmap');
+
+                            // Adicionar células vazias no início (startPadding)
+                            for (let i = 0; i < startPadding; i++) {
+                                const emptyDay = document.createElement('div');
+                                emptyDay.classList.add('day', 'level-0');
+                                heatmap.appendChild(emptyDay);
+                            }
+
+                            // Adicionar células normais (contributions)
+                            contributions.forEach(level => {
+                                const day = document.createElement('div');
+                                day.classList.add('day', `level-${level}`);
+                                heatmap.appendChild(day);
+                            });
+
+                            // Adicionar células vazias no final (endPadding)
+                            for (let i = 0; i < endPadding; i++) {
+                                const emptyDay = document.createElement('div');
+                                emptyDay.classList.add('day', 'level-0');
+                                heatmap.appendChild(emptyDay);
+                            }
+                            });*/
+                        </script>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
