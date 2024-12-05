@@ -8,6 +8,16 @@ body{
     height: auto;
     width: 100%;
 }
+.header-profile{
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+}
+.header-logo{
+    width: 100px;
+}
 
 .profile-pic{
     height: 200px;
@@ -26,10 +36,20 @@ body{
 
 .heatmap {
     display: grid;
-    grid-template-rows: repeat(7, 15px); /* 7 dias da semana */;
-    grid-template-columns: repeat(53, 15px); /* 52 semanas do ano */
+    grid-template-rows: repeat(7, 15px); /* 7 dias da semana */
+    grid-template-columns: repeat(53, 15px); 
     justify-content: center;
+    align-items: center;
 }
+
+.legend {
+    text-align: right;
+    font-size: 0.8rem; /* Tamanho pequeno */
+    line-height: 1.5; /* Espaçamento entre linhas */
+    padding-right: 5px;
+    justify-content: end;
+}
+
 
 
 .day {
@@ -38,6 +58,7 @@ body{
     border-radius: 2px;
     background-color: #ddd; /* Base padrão */
 }
+
 
 /* Definir cores de acordo com a intensidade de contribuições */
 .level-1 { background-color: white; } /* Nenhuma contribuição */
