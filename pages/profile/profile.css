@@ -26,7 +26,10 @@ body{
     object-fit: cover;
     object-position: top;
 }
-
+.form-label-coloring{
+    font-weight: 550;
+    color: #1E3E62;
+}
 .meses {
     display: flex;
     flex-wrap: wrap;
@@ -40,6 +43,7 @@ body{
     grid-template-columns: repeat(53, 15px); 
     justify-content: center;
     align-items: center;
+    background-color: #1E3E62;
 }
 
 .legend {
