@@ -63,6 +63,7 @@ body{
 
 
 /* Definir cores de acordo com a intensidade de contribuições */
+.level-0 { background-color: #1E3E62; } /* Base padrão */
 .level-1 { background-color: white; } /* Nenhuma contribuição */
 .level-2 { background-color: #4CAF50; } /* Baixa atividade */
 .level-3 { background-color: #F44336; } /* Média atividade */
