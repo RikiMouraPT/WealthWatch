@@ -46,12 +46,9 @@ body{
     background-color: #1E3E62;
 }
 
-.legend {
-    text-align: right;
-    font-size: 0.8rem; /* Tamanho pequeno */
-    line-height: 1.5; /* Espaçamento entre linhas */
-    padding-right: 5px;
-    justify-content: end;
+.labels-legend {
+    font-weight: 550;
+    color: #1E3E62;
 }
 
 
