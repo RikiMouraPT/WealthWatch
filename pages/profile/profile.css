@@ -80,3 +80,20 @@ body{
 .level-1 { background-color: white; } /* Nenhuma contribuição */
 .level-2 { background-color: #4CAF50; } /* Baixa atividade */
 .level-3 { background-color: #F44336; } /* Média atividade */
+
+/* ------------------ CUSTOM SCROLLBAR ------------------ */
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: #C9E6F0;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #1E3E62;
+    border-radius: 10px;
+    border: 3px solid #C9E6F0;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #0D2740;
+}
