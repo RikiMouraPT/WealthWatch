@@ -27,9 +27,9 @@ header{
 }
 .header-title{
     font-family: Impact, 'Arial Narrow Bold', sans-serif;
-    font-size: 3.5em;
     color: #1E3E62;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    font-size: clamp(2rem, 6vw, 4rem);
 }
 
 /* ------------------ BALANCE ------------------ */
