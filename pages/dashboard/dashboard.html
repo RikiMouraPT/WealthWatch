@@ -18,18 +18,18 @@
             <p class="m-2 header-title">Dashboard</p>
         </div>
         <a href="../profile/profile.html" class="me-4 m-2">
-            <img class="shadow header-profile"src="../../assets/FotoPasse.jpg" alt="ProfilePic">
+            <img class="shadow header-profile" src="../../assets/FotoPasse.jpg" alt="ProfilePic">
         </a>
     </header>
     
     <!-- Dashboard Container -->
-    <div class="container">
+    <div class="container-fluid">
         <div class="row my-5">
             <!-- 1st Col - Balance & Graph-->
-            <div class="col-10">
+            <div class="col-12 col-md-10">
                 <!-- Balance -->
                 <div class="balance-div">
-                    <p class="text-center balance mb-0 ">13,456.78 €</p>
+                    <p class="text-center balance mb-0">13,456.78 €</p>
                     <p class="text-center gainloss mb-1" style="color: green">+3,223.13 € (24.03%)</p>
                 </div>
 
@@ -64,11 +64,11 @@
             </div>
 
             <!-- 2nd Col - Buttons-->
-            <div class="col-2 d-flex flex-column">
-                <div class="d-grid gap-5 flex-grow-1 buttons">
-                    <button class="btnBuy" class="btn mt-0 m-2 btn-block flex-fill" type="button" data-bs-toggle="modal" data-bs-target="#buyModal">Buy</button>
-                    <button class="btnSell" class="btn m-2 btn-block flex-fill" type="button" data-bs-toggle="modal" data-bs-target="#sellModal">Sell</button>
-                    <button class="btnUpdate" class="btn mb-0 m-2 btn-block flex-fill" type="button" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+            <div class="col-12 col-md-2 d-flex flex-column">
+                <div class="d-grid gap-3 flex-grow-1 buttons">
+                    <button class="btnBuy btn mt-0 m-2 btn-block flex-fill" type="button" data-bs-toggle="modal" data-bs-target="#buyModal">Buy</button>
+                    <button class="btnSell btn m-2 btn-block flex-fill" type="button" data-bs-toggle="modal" data-bs-target="#sellModal">Sell</button>
+                    <button class="btnUpdate btn mb-0 m-2 btn-block flex-fill" type="button" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
                 </div>
             </div>
         </div>
@@ -80,17 +80,17 @@
                 <table id="table" class="table table-hover">
                     <thead>
                         <tr>
-                        <th scope="col">Product</th>
-                        <th scope="col">SYMBOL/ISIN</th>
-                        <th scope="col">Exchange</th>
-                        <th scope="col">QTY</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Curr.</th>
-                        <th scope="col">Value</th>
-                        <th scope="col">BEP</th>
-                        <th scope="col">P/L €</th>
-                        <th scope="col">P/L %</th>
-                        <th scope="col">Total P/L</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">SYMBOL/ISIN</th>
+                            <th scope="col">Exchange</th>
+                            <th scope="col">QTY</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Curr.</th>
+                            <th scope="col">Value</th>
+                            <th scope="col">BEP</th>
+                            <th scope="col">P/L €</th>
+                            <th scope="col">P/L %</th>
+                            <th scope="col">Total P/L</th>
                         </tr>
                     </thead>
                     <tbody id="dashboardTableBody">
@@ -99,6 +99,7 @@
                 </table>
             </div>
         </div>
+
         <!-- FOOTER with Log Out Button-->
         <footer>
             <div class="d-flex justify-content-end mt-3">
@@ -118,7 +119,6 @@
                 <div class="modal-body">
                     <form id="buyForm">
                         <div class="mb-3">
-                            <!-- 'for' is used to associate the label with the input and improve accessibility and focus on input when clicking on label -->
                             <label for="productName" class="form-label">Product</label>
                             <input type="text" class="form-control" id="productName" required>
                         </div>
@@ -219,6 +219,7 @@
             </div>
         </div>
     </div>
+
     <script src="dashboard.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
