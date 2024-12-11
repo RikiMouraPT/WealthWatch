@@ -48,102 +48,104 @@
                 </div>
             </div>
             <!-- Heatmap -->
-            <div class="col-8 my-auto">
-                <div class="d-flex ms-4 me-5 justify-content-around months-label">
-                    <small>Jan</small>
-                    <small>Feb</small>
-                    <small>Mar</small>
-                    <small>Apr</small>
-                    <small>May</small>
-                    <small>Jun</small>
-                    <small>Jul</small>
-                    <small>Aug</small>
-                    <small>Sep</small>
-                    <small>Oct</small>
-                    <small>Nov</small>
-                    <small>Dec</small>
-                </div>
-                <div class="justify-content-end">
-                    <div class="heatmap shadow rounded">
-                        <script>
-                            document.addEventListener("DOMContentLoaded", function() {
-                            const totalDays = 365;  // Number of days in the year
-                            const startPadding = 2;  // Monday = 0, Tuesday = 1, etc.
-                            const weeks = 52; // Number of weeks in the year
-                            const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
-                            // Select the grid
-                            const heatmap = document.querySelector('.heatmap');
-
-                            // Add labels for days of the week
-                            for (let i = 0; i < 7; i++) {  // 7 days of the week
-                                const dayLabel = document.createElement('div');
-                                dayLabel.classList.add('day-label');  
-                                dayLabel.textContent = days[i];
-                                heatmap.appendChild(dayLabel);
-                            }
-
-                            // Adicionar células vazias no início (startPadding)
-                            for (let i = 0; i < startPadding; i++) {
-                                const emptyDay = document.createElement('div');
-                                emptyDay.classList.add('day', 'level-0');
-                                heatmap.appendChild(emptyDay);
-                            }
-
-                            // Calculate the number of empty cells at the end
-                            const endPadding = (7 - (startPadding + totalDays) % 7) % 7;
-
-                            // Generate 365 days with random contributions (levels 1 to 3)
-                            const contributions = [];
-                            for (let i = 0; i < totalDays; i++) {
-                                contributions.push(Math.floor(Math.random() * 3) + 1);
-                            }
-
-                            // Fill the grid by weeks (52 weeks)
-                            let dayIndex = 0;
-                            for (let i = 0; i < weeks; i++) {
-                                // For each week, add 7 cells (one for each day of the week)
-                                for (let j = 0; j < 7; j++) {
-                                    if (dayIndex < totalDays) {
-                                        const level = contributions[dayIndex];
-                                        const day = document.createElement('div');
-                                        day.classList.add('day', `level-${level}`);
-                                        heatmap.appendChild(day);
-                                        dayIndex++;
-                                    } else {
-                                        // If no more contributions, fill with empty cells
+            <div class="col-8 my-auto flex-column">
+                <div style="overflow-x: auto;">
+                    <div class="d-flex ms-4 me-5 justify-content-around months-label">
+                        <small>Jan</small>
+                        <small>Feb</small>
+                        <small>Mar</small>
+                        <small>Apr</small>
+                        <small>May</small>
+                        <small>Jun</small>
+                        <small>Jul</small>
+                        <small>Aug</small>
+                        <small>Sep</small>
+                        <small>Oct</small>
+                        <small>Nov</small>
+                        <small>Dec</small>
+                    </div>
+                    <div class="justify-content-end">
+                        <div class="heatmap shadow rounded">
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function() {
+                                    const totalDays = 365;  // Number of days in the year
+                                    const startPadding = 2;  // Monday = 0, Tuesday = 1, etc.
+                                    const weeks = 52; // Number of weeks in the year
+                                    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+                                    
+                                    // Select the grid
+                                    const heatmap = document.querySelector('.heatmap');
+                                    
+                                    // Add labels for days of the week
+                                    for (let i = 0; i < 7; i++) {  // 7 days of the week
+                                        const dayLabel = document.createElement('div');
+                                        dayLabel.classList.add('day-label');  
+                                        dayLabel.textContent = days[i];
+                                        heatmap.appendChild(dayLabel);
+                                    }
+                                    
+                                    // Adicionar células vazias no início (startPadding)
+                                    for (let i = 0; i < startPadding; i++) {
                                         const emptyDay = document.createElement('div');
                                         emptyDay.classList.add('day', 'level-0');
                                         heatmap.appendChild(emptyDay);
                                     }
-                                }
-                            }
-
-                            // Add empty cells at the end (endPadding)
-                            for (let i = 0; i < endPadding; i++) {
-                                const emptyDay = document.createElement('div');
-                                emptyDay.classList.add('day', 'level-0');
-                                heatmap.appendChild(emptyDay);
-                                }
-                            });
-
-                        </script>
-                        <!--Add labels for days of the week
-                        for (let i = 0; i < 7; i++) {  // 7 days of the week
-                                const dayLabel = document.createElement('div');
-                                dayLabel.classList.add('day-label');  // Ensure this class is styled appropriately in your CSS
-                                dayLabel.textContent = days[i];
-                                heatmap.appendChild(dayLabel);
+                                    
+                                    // Calculate the number of empty cells at the end
+                                    const endPadding = (7 - (startPadding + totalDays) % 7) % 7;
+                                    
+                                    // Generate 365 days with random contributions (levels 1 to 3)
+                                    const contributions = [];
+                                    for (let i = 0; i < totalDays; i++) {
+                                        contributions.push(Math.floor(Math.random() * 3) + 1);
+                                    }
+                                    
+                                    // Fill the grid by weeks (52 weeks)
+                                    let dayIndex = 0;
+                                    for (let i = 0; i < weeks; i++) {
+                                        // For each week, add 7 cells (one for each day of the week)
+                                        for (let j = 0; j < 7; j++) {
+                                            if (dayIndex < totalDays) {
+                                                const level = contributions[dayIndex];
+                                                const day = document.createElement('div');
+                                                day.classList.add('day', `level-${level}`);
+                                                heatmap.appendChild(day);
+                                                dayIndex++;
+                                            } else {
+                                                // If no more contributions, fill with empty cells
+                                                const emptyDay = document.createElement('div');
+                                                emptyDay.classList.add('day', 'level-0');
+                                                heatmap.appendChild(emptyDay);
+                                            }
+                                        }
+                                    }
+                                    
+                                    // Add empty cells at the end (endPadding)
+                                    for (let i = 0; i < endPadding; i++) {
+                                        const emptyDay = document.createElement('div');
+                                        emptyDay.classList.add('day', 'level-0');
+                                        heatmap.appendChild(emptyDay);
+                                    }
+                                });
+                                
+                                </script>
+                            <!--Add labels for days of the week
+                            for (let i = 0; i < 7; i++) {  // 7 days of the week
+                            const dayLabel = document.createElement('div');
+                            dayLabel.classList.add('day-label');  // Ensure this class is styled appropriately in your CSS
+                            dayLabel.textContent = days[i];
+                            heatmap.appendChild(dayLabel);
                             }-->
+                        </div>
+                    </div>
+                    <div class=" d-flex justify-content-end">
+                        <caption class="labels-legend">Color guide: </caption>
                     </div>
                 </div>
-                <div class=" d-flex justify-content-end">
-                <caption class="labels-legend">Color guide: </caption>
-                </div>
-            </div>
+            <div>
         </div>
     </div>
-
+    
     <!-- Modal -->
     <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
         <div class="modal-dialog">
