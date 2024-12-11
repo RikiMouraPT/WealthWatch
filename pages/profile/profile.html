@@ -48,16 +48,8 @@
                 </div>
             </div>
             <!-- Heatmap -->
-             <div class="col-2 d-flex my-auto justify-content-end labels-legend">
-                <div class="justify-content-between">
-                    <small>Mon</small><br>
-                    <small>Wed</small><br>
-                    <small>Fri</small><br>
-                    <small>Sun</small>
-                </div>
-             </div>
             <div class="col-8 my-auto">
-                <div class="d-flex justify-content-between labels-legend">
+                <div class="d-flex ms-4 me-5 justify-content-around months-label">
                     <small>Jan</small>
                     <small>Feb</small>
                     <small>Mar</small>
@@ -71,25 +63,25 @@
                     <small>Nov</small>
                     <small>Dec</small>
                 </div>
-                <div class="d-flex justify-content-start">
+                <div class="justify-content-end">
                     <div class="heatmap shadow rounded">
                         <script>
-                            document.addEventListener("DOMContentLoaded", function () {
-                            const totalDays = 365;  // Número de dias no ano
-                            const startPadding = 2;  // Segunda-feira = 0, Terça = 1, etc.
-                            const weeks = 52; // Número de semanas no ano
+                            document.addEventListener("DOMContentLoaded", function() {
+                            const totalDays = 365;  // Number of days in the year
+                            const startPadding = 2;  // Monday = 0, Tuesday = 1, etc.
+                            const weeks = 52; // Number of weeks in the year
+                            const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
-                            // Calcular o número de células vazias no final
-                            const endPadding = (7 - (startPadding + totalDays) % 7) % 7;
-
-                            // Gerar 365 dias com contribuições aleatórias (níveis de 1 a 3)
-                            const contributions = [];
-                            for (let i = 0; i < totalDays; i++) {
-                                contributions.push(Math.floor(Math.random() * 3) + 1);
-                            }
-
-                            // Selecionar a grelha
+                            // Select the grid
                             const heatmap = document.querySelector('.heatmap');
+
+                            // Add labels for days of the week
+                            for (let i = 0; i < 7; i++) {  // 7 days of the week
+                                const dayLabel = document.createElement('div');
+                                dayLabel.classList.add('day-label');  
+                                dayLabel.textContent = days[i];
+                                heatmap.appendChild(dayLabel);
+                            }
 
                             // Adicionar células vazias no início (startPadding)
                             for (let i = 0; i < startPadding; i++) {
@@ -98,10 +90,19 @@
                                 heatmap.appendChild(emptyDay);
                             }
 
-                            // Preencher a grid por semanas (52 semanas)
+                            // Calculate the number of empty cells at the end
+                            const endPadding = (7 - (startPadding + totalDays) % 7) % 7;
+
+                            // Generate 365 days with random contributions (levels 1 to 3)
+                            const contributions = [];
+                            for (let i = 0; i < totalDays; i++) {
+                                contributions.push(Math.floor(Math.random() * 3) + 1);
+                            }
+
+                            // Fill the grid by weeks (52 weeks)
                             let dayIndex = 0;
                             for (let i = 0; i < weeks; i++) {
-                                // Para cada semana, adicionar 7 células (um para cada dia da semana)
+                                // For each week, add 7 cells (one for each day of the week)
                                 for (let j = 0; j < 7; j++) {
                                     if (dayIndex < totalDays) {
                                         const level = contributions[dayIndex];
@@ -110,7 +111,7 @@
                                         heatmap.appendChild(day);
                                         dayIndex++;
                                     } else {
-                                        // Se não houver mais contribuições, preenchemos com células vazias
+                                        // If no more contributions, fill with empty cells
                                         const emptyDay = document.createElement('div');
                                         emptyDay.classList.add('day', 'level-0');
                                         heatmap.appendChild(emptyDay);
@@ -118,50 +119,22 @@
                                 }
                             }
 
-                            // Adicionar células vazias no final (endPadding)
+                            // Add empty cells at the end (endPadding)
                             for (let i = 0; i < endPadding; i++) {
                                 const emptyDay = document.createElement('div');
                                 emptyDay.classList.add('day', 'level-0');
                                 heatmap.appendChild(emptyDay);
-                            }
+                                }
                             });
 
-
-                            /*document.addEventListener("DOMContentLoaded", function () {
-                            const startPadding = 2; // Segunda-feira = 0, Terça-feira = 1, etc.
-                            const endPadding = 6 - (startPadding + 364) % 7;
-
-                            // Gerar 365 dias com contribuições aleatórias (níveis de 1 a 3)
-                            const contributions = [];
-                            for (let i = 0; i < 365; i++) {
-                                contributions.push(Math.floor(Math.random() * 3) + 1);
-                            }
-
-                            // Selecionar a grelha
-                            const heatmap = document.querySelector('.heatmap');
-
-                            // Adicionar células vazias no início (startPadding)
-                            for (let i = 0; i < startPadding; i++) {
-                                const emptyDay = document.createElement('div');
-                                emptyDay.classList.add('day', 'level-0');
-                                heatmap.appendChild(emptyDay);
-                            }
-
-                            // Adicionar células normais (contributions)
-                            contributions.forEach(level => {
-                                const day = document.createElement('div');
-                                day.classList.add('day', `level-${level}`);
-                                heatmap.appendChild(day);
-                            });
-
-                            // Adicionar células vazias no final (endPadding)
-                            for (let i = 0; i < endPadding; i++) {
-                                const emptyDay = document.createElement('div');
-                                emptyDay.classList.add('day', 'level-0');
-                                heatmap.appendChild(emptyDay);
-                            }
-                            });*/
                         </script>
+                        <!--Add labels for days of the week
+                        for (let i = 0; i < 7; i++) {  // 7 days of the week
+                                const dayLabel = document.createElement('div');
+                                dayLabel.classList.add('day-label');  // Ensure this class is styled appropriately in your CSS
+                                dayLabel.textContent = days[i];
+                                heatmap.appendChild(dayLabel);
+                            }-->
                     </div>
                 </div>
                 <div class=" d-flex justify-content-end">

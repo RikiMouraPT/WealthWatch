@@ -39,20 +39,33 @@ body{
 
 .heatmap {
     display: grid;
+    grid-template-columns: 40px repeat(53, 15px); /* Primeira coluna para rótulos */
     grid-template-rows: repeat(7, 15px); /* 7 dias da semana */
-    grid-template-columns: repeat(53, 15px); 
     grid-auto-flow: column;
     justify-content: center;
     align-items: center;
     background-color: #1E3E62;
 }
 
-.labels-legend {
-    font-weight: 550;
-    color: #1E3E62;
+.day-labels-column {
+    grid-column: 1; /* Fixar os labels na primeira coluna */
+    grid-row: 1 / 8; /* Abranger as 7 linhas */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-
+.day-label {
+    color: white;
+    text-align: right;
+    font-weight: 550;
+    margin-right: 5px; /* Espaço para separar do restante */
+}
+.months-label {
+    color: #1E3E62;
+    text-align: center;
+    font-weight: 650;
+}
 
 .day {
     width: 12px;
