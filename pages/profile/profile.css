@@ -67,13 +67,25 @@ body{
     font-weight: 650;
 }
 
-.day {
+.heatmap-day {
     width: 12px;
     height: 12px;
     border-radius: 2px;
     background-color: #ddd; /* Base padrão */
+    margin: 2px;
+    flex-direction: column;
+}
+.month-label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+    flex-direction: column;
 }
 
+.month {
+    text-align: center;
+}
 
 /* Definir cores de acordo com a intensidade de contribuições */
 .level-0 { background-color: #1E3E62; } /* Base padrão */
