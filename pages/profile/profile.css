@@ -75,16 +75,14 @@ body{
     margin: 2px;
     flex-direction: column;
 }
-.month-label {
-    font-size: 0.9rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: white;
-    flex-direction: column;
-}
 
 .month {
     text-align: center;
+}
+
+.day{
+    width: 12px;
+    height: 12px;
 }
 
 /* Definir cores de acordo com a intensidade de contribuições */
