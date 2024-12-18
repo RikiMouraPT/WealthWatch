@@ -39,10 +39,7 @@ body{
     width: 14px;
     border-radius: 25%;
 }
-.days-months-labels{
-    color: white;
-    font-weight: 550;
-}
+
 .grid{
     display: grid;
     grid-auto-flow: column;
