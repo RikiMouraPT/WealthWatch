@@ -81,7 +81,9 @@ function updatePortfolioTable() {
         // Append the row to the table body
         tBody.appendChild(row);
     });
-    document.getElementById('portfolioBalance').textContent = totalBalance.toFixed(2);
+    // Atualiza o valor formatado no elemento
+    document.getElementById('portfolioBalance').textContent = totalBalance.toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
 }
 // Call the function to update the table when the page loads from local storage, can only be called after the function is defined
 updatePortfolioTable();
