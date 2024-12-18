@@ -48,6 +48,8 @@ document.querySelector('.btnConfirmBuy').addEventListener('click', function() {
 
 //#region Function to update the table with the portfolioData Array and load the data from local storage when the page loads
 function updatePortfolioTable() {
+    let totalBalance = 0;
+
     // Get the table body element
     let tBody = document.getElementById('dashboardTableBody');
 
@@ -56,6 +58,8 @@ function updatePortfolioTable() {
 
     // Loop through portfolioData and create rows for each item
     portfolioData.forEach(function(item) {
+        totalBalance += item.totalValue; // Add the total value of each item to the total balance
+        
         // Create a new row
         let row = document.createElement('tr');
 
@@ -77,6 +81,7 @@ function updatePortfolioTable() {
         // Append the row to the table body
         tBody.appendChild(row);
     });
+    document.getElementById('portfolioBalance').textContent = totalBalance.toFixed(2);
 }
 // Call the function to update the table when the page loads from local storage, can only be called after the function is defined
 updatePortfolioTable();
