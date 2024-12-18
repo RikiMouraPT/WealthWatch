@@ -26,63 +26,30 @@ body{
     object-fit: cover;
     object-position: top;
 }
+
 .form-label-coloring{
     font-weight: 550;
     color: #1E3E62;
 }
-.meses {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.heatmap {
-    display: grid;
-    grid-template-columns: 40px repeat(53, 15px); /* Primeira coluna para rótulos */
-    grid-template-rows: repeat(7, 15px); /* 7 dias da semana */
-    grid-auto-flow: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #1E3E62;
-}
-
-.day-labels-column {
-    grid-column: 1; /* Fixar os labels na primeira coluna */
-    grid-row: 1 / 8; /* Abranger as 7 linhas */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.day-label {
-    color: white;
-    text-align: right;
-    font-weight: 550;
-    margin-right: 5px; /* Espaço para separar do restante */
-}
-.months-label {
-    color: #1E3E62;
-    text-align: center;
-    font-weight: 650;
-}
 
 .heatmap-day {
-    width: 12px;
-    height: 12px;
-    border-radius: 2px;
-    background-color: #ddd; /* Base padrão */
-    margin: 2px;
-    flex-direction: column;
+    position: relative;
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+    border-radius: 25%;
 }
-
-.month {
-    text-align: center;
+.days-months-labels{
+    color: white;
+    font-weight: 550;
 }
-
-.day{
-    width: 12px;
-    height: 12px;
+.grid{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 40px repeat(54, 14px);
+    grid-template-rows: repeat(7, 14px);
+    font-size: 10px;
+    gap: 2px;
 }
 
 /* Definir cores de acordo com a intensidade de contribuições */
@@ -93,17 +60,17 @@ body{
 
 /* ------------------ CUSTOM SCROLLBAR ------------------ */
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
 }
 ::-webkit-scrollbar-track {
-    background: #C9E6F0;
+    background: #1E3E62;
     border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #1E3E62;
+    background-color: #C9E6F0;
     border-radius: 10px;
-    border: 3px solid #C9E6F0;
+    border: 2px solid #1E3E62;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #0D2740;
+    background-color: #C9E6F0;
 }

@@ -47,104 +47,406 @@
                     <span id="displayPreferences">Stocks</span>
                 </div>
             </div>
-            <!-- Heatmap -->
-            <div class="col-12 col-sm-8 my-auto flex-column" style="overflow-x: auto">
-                <div>
-                    <div class="d-flex ms-4 me-5 justify-content-around months-label">
-                        <small>Jan</small>
-                        <small>Feb</small>
-                        <small>Mar</small>
-                        <small>Apr</small>
-                        <small>May</small>
-                        <small>Jun</small>
-                        <small>Jul</small>
-                        <small>Aug</small>
-                        <small>Sep</small>
-                        <small>Oct</small>
-                        <small>Nov</small>
-                        <small>Dec</small>
-                    </div>
-                    <div class="justify-content-end">
-                        <div class="heatmap shadow rounded">
-                            <script>
-                                document.addEventListener("DOMContentLoaded", function() {
-                                    const totalDays = 365;  // Number of days in the year
-                                    const startPadding = 2;  // Monday = 0, Tuesday = 1, etc.
-                                    const weeks = 52; // Number of weeks in the year
-                                    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-                                    
-                                    // Select the grid
-                                    const heatmap = document.querySelector('.heatmap');
-                                    
-                                    // Add labels for days of the week
-                                    for (let i = 0; i < 7; i++) {  // 7 days of the week
-                                        const dayLabel = document.createElement('div');
-                                        dayLabel.classList.add('day-label');  
-                                        dayLabel.textContent = days[i];
-                                        heatmap.appendChild(dayLabel);
-                                    }
-                                    
-                                    // Adicionar células vazias no início (startPadding)
-                                    for (let i = 0; i < startPadding; i++) {
-                                        const emptyDay = document.createElement('div');
-                                        emptyDay.classList.add('day', 'level-0');
-                                        heatmap.appendChild(emptyDay);
-                                    }
-                                    
-                                    // Calculate the number of empty cells at the end
-                                    const endPadding = (7 - (startPadding + totalDays) % 7) % 7;
-                                    
-                                    // Generate 365 days with random contributions (levels 1 to 3)
-                                    const contributions = [];
-                                    for (let i = 0; i < totalDays; i++) {
-                                        contributions.push(Math.floor(Math.random() * 3) + 1);
-                                    }
-                                    
-                                    // Fill the grid by weeks (52 weeks)
-                                    let dayIndex = 0;
-                                    for (let i = 0; i < weeks; i++) {
-                                        // For each week, add 7 cells (one for each day of the week)
-                                        for (let j = 0; j < 7; j++) {
-                                            if (dayIndex < totalDays) {
-                                                const level = contributions[dayIndex];
-                                                const day = document.createElement('div');
-                                                day.classList.add('day', `level-${level}`);
-                                                heatmap.appendChild(day);
-                                                dayIndex++;
-                                            } else {
-                                                // If no more contributions, fill with empty cells
-                                                const emptyDay = document.createElement('div');
-                                                emptyDay.classList.add('day', 'level-0');
-                                                heatmap.appendChild(emptyDay);
-                                            }
-                                        }
-                                    }
-                                    
-                                    // Add empty cells at the end (endPadding)
-                                    for (let i = 0; i < endPadding; i++) {
-                                        const emptyDay = document.createElement('div');
-                                        emptyDay.classList.add('day', 'level-0');
-                                        heatmap.appendChild(emptyDay);
-                                    }
-                                });
-                                
-                                </script>
-                            <!--Add labels for days of the week
-                            for (let i = 0; i < 7; i++) {  // 7 days of the week
-                            const dayLabel = document.createElement('div');
-                            dayLabel.classList.add('day-label');  // Ensure this class is styled appropriately in your CSS
-                            dayLabel.textContent = days[i];
-                            heatmap.appendChild(dayLabel);
-                            }-->
-                        </div>
-                    </div>
-                    <div class=" d-flex justify-content-end">
-                        <caption class="labels-legend">Color guide: </caption>
-                    </div>
+            <div class="col-12 col-sm-10 my-auto p-2 justify-content-center shadow" style="overflow-x: auto; background-color: #1E3E62;">
+                <div class="d-flex">
+                    <small class="ms-5 days-months-labels">Jan</small>
+                    <small class="ms-5 days-months-labels">Feb</small>
+                    <small class="ms-5 days-months-labels">Mar</small>
+                    <small class="ms-5 days-months-labels">Apr</small>
+                    <small class="ms-5 days-months-labels">May</small>
+                    <small class="ms-5 days-months-labels">Jun</small>
+                    <small class="ms-5 days-months-labels">Jul</small>
+                    <small class="ms-5 days-months-labels">Aug</small>
+                    <small class="ms-5 days-months-labels">Sep</small>
+                    <small class="ms-5 days-months-labels">Oct</small>
+                    <small class="ms-5 days-months-labels">Nov</small>
+                    <small class="ms-5 days-months-labels">Dec</small>
                 </div>
-            <div>
+                <!--<img src="/assets/GithubHeatmap.png">-->
+                <div class="grid">
+                    <div class="days-months-labels">Mon</div>
+                    <div class="days-months-labels">Tue</div>
+                    <div class="days-months-labels">Wed</div>
+                    <div class="days-months-labels">Thu</div>
+                    <div class="days-months-labels">Fri</div>
+                    <div class="days-months-labels">Sat</div>
+                    <div class="days-months-labels">Sun</div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-3"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-3"></div>
+                    <div class="heatmap-day level-3"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-3"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                    <div class="heatmap-day level-2"></div>
+                </div>
+            </div>
         </div>
-    </div>
     
     <!-- Modal -->
     <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
